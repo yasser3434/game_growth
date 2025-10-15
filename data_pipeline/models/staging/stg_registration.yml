@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_registration
+    description: "Reading jsob object data from snowflake"
+    columns:
+      - name: uid
+        description: "Unique ID"
+        tests:
+          - not_null
+      - name: reg_ts
+        description: "unix timestamp of registration"
+        tests:
+          - not_null
+      - name: reg_datetime
+        tests:
+          - not_null

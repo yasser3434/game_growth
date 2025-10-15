@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: gg_snowflake_source
+    database: gg_db
+    schema: gg_schema
+    tables:
+      - name: registration
+      - name: auth
+      # Columns in json object format, exp : 1$:uid = 1234
+        # columns:
+        #   - name: reg_ts
+        #     tests:
+        #       - unique
+        #       - not_null
+      # - name: auth
+      # columns:
+      #   - name: auth_ts
+      #     tests:
+      #       - unique
+      #       - not_null

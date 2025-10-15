@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_auth
+    description: "Reading json object data for Authentification view"
+    columns:
+      - name: auth_ts
+        tests:
+          - unique
+          - not_null
+      - name: uid
+        tests:
+          - unique
+          - not_null
