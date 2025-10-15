@@ -1,0 +1,25 @@
+name: Lint and Style check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install linting tools
+        run: pip install flake8 black
+
+      - name: check python syntax with flake8
+        run: flake8 dags/ --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: check code formatting with black
+        run: black --check dags/

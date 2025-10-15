@@ -3,3 +3,4 @@ pandas
 kagglehub
 dbt-core
 dbt-snowflake
+pre-commit

@@ -2,3 +2,5 @@ data/
 .env
 .venv
 logs/
+profiles.yml
+.user.yml
