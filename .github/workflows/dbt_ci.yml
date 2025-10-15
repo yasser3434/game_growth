@@ -19,7 +19,7 @@ jobs:
 
       - run: pip install dbt-core dbt-snowflake
       - run: dbt deps
-        working_directory: ./dags/data_pipeline
+        working-directory: ./dags/data_pipeline
 
       - run: dbt build --select staging
-        working_directory: ./dags/data_pipeline
+        working-directory: ./dags/data_pipeline
