@@ -33,7 +33,7 @@ df_auth = (
     spark.read.option("delimiter", ";")
     .option("header", True)
     .option("inferSchema", True)
-    .csv(RAW + "auth_data")
+    .csv(RAW + "auth_data/")
 )
 
 df_auth = df_auth.withColumn("auth_datetime", F.from_unixtime(F.col("auth_ts")))

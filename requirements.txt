@@ -3,4 +3,5 @@ pandas
 kagglehub
 dbt-core
 dbt-snowflake
+dbt-redshift
 pre-commit
