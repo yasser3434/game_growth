@@ -9,22 +9,22 @@ sources:
       - name: auth
       - name: ab_test
 
-  - name: gg_redshift_source
-    database: dev
-    schema: staging
-    tables:
-      - name: registration
-      - name: authentification
-      - name: abtest
-      # Columns in json object format, exp : 1$:uid = 1234
-      # columns:
-      #   - name: reg_ts
-      #     tests:
-      #       - unique
-      #       - not_null
-      # - name: auth
-      # columns:
-      #   - name: auth_ts
-      #     tests:
-      #       - unique
-      #       - not_null
+  # - name: gg_redshift_source
+  #   database: dev
+  #   schema: staging
+  #   tables:
+  #     - name: registration
+  #     - name: authentification
+  #     - name: abtest
+  # Columns in json object format, exp : 1$:uid = 1234
+  # columns:
+  #   - name: reg_ts
+  #     tests:
+  #       - unique
+  #       - not_null
+  # - name: auth
+  # columns:
+  #   - name: auth_ts
+  #     tests:
+  #       - unique
+  #       - not_null
