@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: stg_ab
+    description: "Reading json object data for ab_test view"
+    columns:
+      - name: revenue
+        tests:
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
