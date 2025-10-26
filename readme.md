@@ -1,6 +1,10 @@
 # Game Growth Analytics
 
-End-to-end data pipeline games analytics for user growth, retention.
+End-to-end data pipeline games analytics for user growth, retention. Working with kaggle dataset L : \n
+```
+https://www.kaggle.com/datasets/debs2x/gamelytics-mobile-analytics-challenge/data
+```
+
 #### Using: 
 ####   1st : Snowflake, DBT, Airflow and PowerBI
 #### Then : 
