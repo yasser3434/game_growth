@@ -1,6 +1,10 @@
 # Game Growth Analytics
 
-End-to-end data pipeline games analytics for user growth, retention
+End-to-end data pipeline games analytics for user growth, retention.
+Using: 
+   1st : Snowflake, DBT, Airflow and PowerBI
+Then : 
+   2nd : Terraform, S3, Glue, Redshift, DBT, PowerBI
 
 ## Architecture Overview
 
