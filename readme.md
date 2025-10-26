@@ -2,7 +2,7 @@
 
 End-to-end data pipeline games analytics for user growth, retention
 
-## 🚀 Architecture Overview
+## Architecture Overview
 
 ```
 S3 Raw
@@ -67,3 +67,8 @@ dbt test --target gg_redshift
 #### Generate docs
 
 `dbt docs generate && dbt docs serve`
+
+### POWER BI
+<img width="855" height="489" alt="Screenshot 2025-10-19 155905" src="https://github.com/user-attachments/assets/191caeca-d5ac-4122-ac4a-b9ba385ff04e" />
+
+
