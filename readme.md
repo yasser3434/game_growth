@@ -70,8 +70,8 @@ Install:
 #### Run transformations:
 
 ```
-dbt run --target gg_redshift
 dbt test --target gg_redshift
+dbt run --target gg_redshift
 ```
 
 #### Generate docs
