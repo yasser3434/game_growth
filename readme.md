@@ -23,6 +23,8 @@ Analytics
 ↓
 Power BI Dashboards
 ```
+#### 1st pipeline with Snowflake, DBT, Airflow : 
+<img width="1325" height="550" alt="image" src="https://github.com/user-attachments/assets/8197f40d-0477-4af3-b38d-7e058ed4666b" />
 
 ### Technologies: AWS (S3, Redshift Serverless, IAM), Terraform, dbt Core, Power BI
 
@@ -76,7 +78,7 @@ dbt test --target gg_redshift
 
 `dbt docs generate && dbt docs serve`
 
-### POWER BI
+### PowerBI
 <img width="855" height="489" alt="Screenshot 2025-10-19 155905" src="https://github.com/user-attachments/assets/191caeca-d5ac-4122-ac4a-b9ba385ff04e" />
 
 
