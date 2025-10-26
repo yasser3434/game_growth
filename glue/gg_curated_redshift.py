@@ -2,7 +2,7 @@ import sys
 from awsglue.context import GlueContext
 from awsglue.job import Job
 from pyspark.context import SparkContext
-from awsglue.dynamicframce import DynamicFrame
+from awsglue.dynamicframe import DynamicFrame
 
 # ================================================ Job paramts to pass to : Airflow
 

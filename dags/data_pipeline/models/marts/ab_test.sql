@@ -1,4 +1,4 @@
 
 SELECT 
     *
-FROM {{ ref("stg_ab") }}
+FROM {{ ref("stg_redshift_ab") }}

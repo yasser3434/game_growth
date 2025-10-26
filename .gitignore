@@ -4,3 +4,7 @@ data/
 logs/
 profiles.yml
 .user.yml
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup

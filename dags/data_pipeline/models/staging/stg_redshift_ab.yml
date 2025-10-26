@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_redshift_ab
+    description: "Reading data for abtest view"
+    columns:
+      - name: revenue
+        tests:
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+      - name: testgroup
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["a", "b"]

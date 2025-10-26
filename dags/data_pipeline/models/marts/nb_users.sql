@@ -2,7 +2,7 @@
 WITH distinct_users AS(
     SELECT 
         COUNT(DISTINCT unique_id) AS unique_id_count
-    FROM {{ ref("stg_auth") }} 
+    FROM {{ ref("stg_redshift_auth") }} 
     GROUP BY unique_id
 )
 

@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: gg_snowflake_source
+    database: gg_db
+    schema: gg_schema
+    tables:
+      - name: registration
+      - name: auth
+      - name: ab_test
+
+  - name: gg_redshift_source
+    database: dev
+    schema: staging
+    tables:
+      - name: registration
+        columns:
+          - name: user_id
+            description: "The unique identifier for a user"
+            tests:
+              - not_null
+      - name: authentification
+        columns:
+          - name: user_id
+            description: "The unique identifier for a user"
+            tests:
+              - not_null
+      - name: abtest
+        columns:
+          - name: testgroup
+            description: "The group assigned to the user in the A/B test"
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ["a", "b"]

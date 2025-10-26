@@ -5,7 +5,7 @@ WITH reg AS(
         -- CONVERT(DATE, reg_datetime) AS reg_date
         CAST(reg_datetime AS DATE) AS reg_date
         , unique_id
-    FROM {{ ref("stg_registration") }}
+    FROM {{ ref("stg_redshift_reg") }}
 ),
 
 ------------------------------------- Authentification table
@@ -14,7 +14,7 @@ auth AS(
         -- CONVERT(DATE, auth_datetime) AS auth_date
         CAST(auth_datetime AS DATE) AS auth_date
         , unique_id
-    FROM {{ ref("stg_auth") }}
+    FROM {{ ref("stg_redshift_auth") }}
 ),
 
 ------------------------------------- Datediff between registration date and authentification date
@@ -54,6 +54,6 @@ SELECT
             THEN '91 TO 120'
         WHEN max_retention_date > 120
             THEN '+120'
-        ELSE CAST(max_retention_date AS STRING)
+        ELSE CAST(max_retention_date AS VARCHAR(10))
     END AS groups
 FROM final
