@@ -1,4 +1,4 @@
-# Allow Redshift to read from the curated S3 bucket
+# Allow Redshift to read from S3 bucket
 data "aws_iam_policy_document" "redshift_copy_policy" {
   statement {
     actions = [
@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "redshift_copy_policy" {
   }
 }
 
-# Role for Redshift
+# Redshift Role
 resource "aws_iam_role" "redshift_copy_role" {
   name = "RedshiftCopyRole"
   assume_role_policy = jsonencode({
@@ -29,7 +29,7 @@ resource "aws_iam_role" "redshift_copy_role" {
   })
 }
 
-# Attach S3-read permissions to the role
+# Attach S3 permissions
 resource "aws_iam_role_policy" "redshift_copy_policy_attach" {
   name   = "RedshiftCopyAccess"
   role   = aws_iam_role.redshift_copy_role.id
