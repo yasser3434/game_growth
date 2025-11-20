@@ -35,14 +35,14 @@ def load_to_redshift(subpath: str, table_name: str):
         ),
         catalog_connection=REDSHIFT_CONN,
         connection_options={
-            "preactions": create_schema_sql,  # Run SQL before load
+            "preactions": create_schema_sql,  # =============== Run SQL before load
             "dbtable": table_name,
             "database": DATABASE,
         },
         redshift_tmp_dir=TEMP_DIR,
     )
 
-    # Write actual data
+    # =============== Write data
     glueContext.write_dynamic_frame.from_jdbc_conf(
         frame=dyf,
         catalog_connection=REDSHIFT_CONN,
