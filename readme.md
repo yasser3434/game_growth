@@ -1,8 +1,16 @@
 # Game Growth Analytics
 
-End-to-end data pipeline games analytics for user growth, retention
+End-to-end data pipeline games analytics for user growth, retention. Working with kaggle dataset L : \n
+```
+https://www.kaggle.com/datasets/debs2x/gamelytics-mobile-analytics-challenge/data
+```
 
-## 🚀 Architecture Overview
+#### Using: 
+####   1st : Snowflake, DBT, Airflow and PowerBI
+#### Then : 
+####   2nd : Terraform, S3, Glue, Redshift, DBT, PowerBI
+
+## Architecture Overview
 
 ```
 S3 Raw
@@ -15,6 +23,8 @@ Analytics
 ↓
 Power BI Dashboards
 ```
+#### 1st pipeline with Snowflake, DBT, Airflow : 
+<img width="1325" height="550" alt="image" src="https://github.com/user-attachments/assets/8197f40d-0477-4af3-b38d-7e058ed4666b" />
 
 ### Technologies: AWS (S3, Redshift Serverless, IAM), Terraform, dbt Core, Power BI
 
@@ -60,10 +70,15 @@ Install:
 #### Run transformations:
 
 ```
-dbt run --target gg_redshift
 dbt test --target gg_redshift
+dbt run --target gg_redshift
 ```
 
 #### Generate docs
 
 `dbt docs generate && dbt docs serve`
+
+### PowerBI
+<img width="855" height="489" alt="Screenshot 2025-10-19 155905" src="https://github.com/user-attachments/assets/191caeca-d5ac-4122-ac4a-b9ba385ff04e" />
+
+
