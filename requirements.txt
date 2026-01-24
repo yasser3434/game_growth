@@ -5,3 +5,4 @@ dbt-core
 dbt-snowflake
 dbt-redshift
 pre-commit
+google-cloud-bigquery

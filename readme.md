@@ -1,14 +1,95 @@
 # Game Growth Analytics
 
 End-to-end data pipeline games analytics for user growth, retention. Working with kaggle dataset L : \n
+
 ```
 https://www.kaggle.com/datasets/debs2x/gamelytics-mobile-analytics-challenge/data
 ```
 
-#### Using: 
-####   1st : Snowflake, DBT, Airflow and PowerBI
-#### Then : 
-####   2nd : Terraform, S3, Glue, Redshift, DBT, PowerBI
+#### Using:
+
+#### 1st : Snowflake -> DBT-> Airflow -> PowerBI
+
+#### 2nd : Terraform -> S3 -> Glue -> Redshift -> DBT -> PowerBI
+
+#### 3nd : Local -> GCS -> Cloud Function -> BigQuery Raw -> Dataflow -> Curated -> Power BI
+
+#### Install Google Cloud SDK then verify
+
+```bash
+gcloud --version
+```
+
+#### Create or set project
+
+```bash
+gcloud project list
+gcloud set $PORJECT_ID
+
+```
+
+#### Enable services
+
+```bash
+gcloud services enable \
+    storage.googleapis.com \
+    run.googleapis.com \
+    eventarc.googleapis.com \
+    bigquery.googleapis.com \
+    dataflow.googleapis.com \
+    composer.googleapis.com \
+    artifactregistry.googleapis.com \
+    cloudbuild.googleapis.com \
+    iam.googleapis.com
+```
+
+#### Export variables
+
+```bash
+export PROJECT_ID={your_project_id}
+export REGION={your_region}
+```
+
+PowerShell
+
+```bash
+$PROJECT_ID="your_project_id"
+$REGION="your_region"
+```
+
+#### Create buckets
+
+```bash
+gsutil mb -l $REGION gs://$PROJECT_ID-raw
+gsutil mb -l $REGION gs://$PROJECT_ID-processed
+gsutil mb -l $REGION gs://$PROJECT_ID-dlq
+```
+
+#### Create Dataset and tables
+
+```bash
+bq mk --dataset $PROJECT_ID:<dataset>
+```
+
+Or create it through the console
+
+#### Create service accounts
+
+```bash
+gcloud iam service-accounts create sa-ingestion `
+  --display-name "Cloud Run ingestion service account" `
+  --project $PROJECT_ID
+```
+
+Do the same thing for the Dataflow service account than assign roles and permissions on buckets
+
+#### Create artifacts repo and config authentification
+
+```bash
+gcloud auth configure-docker $REGION-docker.pkg.dev
+```
+
+Do the same thing for the Dataflow service account than assign roles and permissions on buckets
 
 ## Architecture Overview
 
@@ -23,7 +104,9 @@ Analytics
 ↓
 Power BI Dashboards
 ```
-#### 1st pipeline with Snowflake, DBT, Airflow : 
+
+#### 1st pipeline with Snowflake, DBT, Airflow :
+
 <img width="1325" height="550" alt="image" src="https://github.com/user-attachments/assets/8197f40d-0477-4af3-b38d-7e058ed4666b" />
 
 ### Technologies: AWS (S3, Redshift Serverless, IAM), Terraform, dbt Core, Power BI
@@ -79,6 +162,5 @@ dbt run --target gg_redshift
 `dbt docs generate && dbt docs serve`
 
 ### PowerBI
+
 <img width="855" height="489" alt="Screenshot 2025-10-19 155905" src="https://github.com/user-attachments/assets/191caeca-d5ac-4122-ac4a-b9ba385ff04e" />
-
-
