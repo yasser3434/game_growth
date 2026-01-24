@@ -112,3 +112,5 @@ terraform apply
 ```bash
 python .\pipeline.py --project <project-id> --region europe-west9 --temp_location gs://<project-id>-dataflow-tmp/tmp --runner DataflowRunner
 ```
+<img width="794" height="511" alt="image" src="https://github.com/user-attachments/assets/03c24e6c-9442-4356-9daa-7bd85f8b10b1" />
+
