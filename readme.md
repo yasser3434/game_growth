@@ -109,6 +109,8 @@ Power BI Dashboards
 
 <img width="1325" height="550" alt="image" src="https://github.com/user-attachments/assets/8197f40d-0477-4af3-b38d-7e058ed4666b" />
 
+## 2nd pipeline with Snowflake, DBT, Airflow :
+
 ### Technologies: AWS (S3, Redshift Serverless, IAM), Terraform, dbt Core, Power BI
 
 #### Deploy Infrastructure (Terraform)
