@@ -12,7 +12,7 @@ https://www.kaggle.com/datasets/debs2x/gamelytics-mobile-analytics-challenge/dat
 
 #### 2nd : Terraform -> S3 -> Glue -> Redshift -> DBT -> PowerBI
 
-#### 3nd : Local -> GCS -> Cloud Function -> BigQuery Raw -> Dataflow -> Curated -> Power BI
+#### 3nd : Local -> GCS -> BigQuery Raw -> Scheduled Queries -> Curated -> Power BI
 
 #### Install Google Cloud SDK then verify
 
@@ -33,12 +33,7 @@ gcloud set $PORJECT_ID
 ```bash
 gcloud services enable \
     storage.googleapis.com \
-    run.googleapis.com \
-    eventarc.googleapis.com \
     bigquery.googleapis.com \
-    dataflow.googleapis.com \
-    composer.googleapis.com \
-    artifactregistry.googleapis.com \
     cloudbuild.googleapis.com \
     iam.googleapis.com
 ```
@@ -73,23 +68,19 @@ bq mk --dataset $PROJECT_ID:<dataset>
 
 Or create it through the console
 
-#### Create service accounts
+#### Create services accounts
+
+With Role : BQ User and Storage Object User
+
+#### Copy data to GCS
 
 ```bash
-gcloud iam service-accounts create sa-ingestion `
-  --display-name "Cloud Run ingestion service account" `
-  --project $PROJECT_ID
+gcloud storage ls
 ```
-
-Do the same thing for the Dataflow service account than assign roles and permissions on buckets
-
-#### Create artifacts repo and config authentification
 
 ```bash
-gcloud auth configure-docker $REGION-docker.pkg.dev
+gcloud storage cp <file> gs://<bucket>
 ```
-
-Do the same thing for the Dataflow service account than assign roles and permissions on buckets
 
 ## Architecture Overview
 
